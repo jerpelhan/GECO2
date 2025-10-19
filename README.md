@@ -1,4 +1,4 @@
-# GeCo2 (Generalized-Scale Object Counting with Gradual Query Aggregation)
+# GeCo2 - Generalized-Scale Object Counting with Gradual Query Aggregation
 
 > Official repository of **GeCo2**  
 > 📄 Read the paper: [GeCo2 PDF](https://prints.vicos.si/publications/files/461)
