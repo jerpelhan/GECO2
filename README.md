@@ -1,9 +1,11 @@
-# GeCo2 (Generalized-Scale Object Counting with Gradual Query Aggregation)
+# GeCo2 - Generalized-Scale Object Counting with Gradual Query Aggregation
 
 > Official repository of **GeCo2**  
+> 🏆 **Accepted to AAAI 2026**  
 > 📄 Read the paper: [GeCo2 PDF](https://prints.vicos.si/publications/files/461)
 
 ---
+
 <img width="2097" height="587" alt="Geco2_architevture-1" src="https://github.com/user-attachments/assets/88d27ee8-e84e-409a-a87d-095ca24e8a89" />
 
 ## Abstract
@@ -18,21 +20,55 @@ On standard few-shot counting/detection benchmarks, GeCo2 achieves strong gains 
 
 <img width="2575" height="912" alt="GECO2_first_image_motivation_neurips-1" src="https://github.com/user-attachments/assets/adf4dcfd-aa17-4cff-9113-8b8a0e37de31" />
 
-
 - 🔁 **Gradual cross-scale query aggregation** → one high-res dense query map without tiling.  
 - 🧩 **Per-scale exemplar interaction** with **appearance** + **shape** prototypes.  
 - ⚡ **Fast & memory-efficient** inference.  
 - 📈 Strong results on **FSCD147**, **FSCD-LVIS**, and **MCAC** (few-shot & multi-class).
+
+
+---
+
+## Demo Installation
+
+You can easily install and run the demo using the provided `install.sh` script.
+
+### 1. Installation
+
+```bash
+bash install.sh
+```
+
+#### Download Weights
+
+Download the model weights from:
+
+👉 [CNTQG_multitrain_ca44.pth](https://huggingface.co/spaces/jerpelhan/GeCo2/blob/main/CNTQG_multitrain_ca44.pth)
+
+and place the file in the **project root directory**.
+
+#### Launch the Demo
+
+Then run:
+
+```bash
+python demo_gradio.py
+```
+---
 <img width="1832" height="2661" alt="GeCoV2Qualitative_segmentation-1" src="https://github.com/user-attachments/assets/8797ada0-e8a7-4e4c-8967-4ebbb365f63f" />
 
 ---
 
-## News
+    
+## Citation
 
-- 2026-XX-XX — Paper under submission.  
-- 2026-XX-XX — Code release planned.
+If you find this work useful, please cite:
 
----
-
-## Repository structure
-
+```bibtex
+@inproceedings{pelhan2026generalized,
+  title={Generalized-Scale Object Counting with Gradual Query Aggregation},
+  author={Pelhan, Jer and Lukezic, Alan and Kristan, Matej},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  pages={},
+  year={2026}
+}
+```
