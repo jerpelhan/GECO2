@@ -32,8 +32,6 @@ On standard few-shot counting/detection benchmarks, GeCo2 achieves strong gains 
 
 You can easily install and run the demo using the provided `install.sh` script.
 
-### 1. Installation
-
 ```bash
 bash install.sh
 ```
