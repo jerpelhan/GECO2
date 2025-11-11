@@ -1,0 +1,24 @@
+# @package _global_
+
+# Model
+backbone:
+  _target_: models.backbones.image_encoder.ImageEncoder
+  scalp: 1
+  trunk:
+    _target_: models.backbones.hieradet.Hiera
+    embed_dim: 112
+    num_heads: 2
+  neck:
+    _target_: models.backbones.image_encoder.FpnNeck
+    position_encoding:
+      _target_: models.position_encoding.PositionEmbeddingSine
+      num_pos_feats: 256
+      normalize: true
+      scale: null
+      temperature: 10000
+    d_model: 256
+    backbone_channel_list: [896, 448, 224, 112]
+    fpn_top_down_levels: [2, 3]  # output level 0 and 1 directly use the backbone features
+    fpn_interp_model: nearest
+
+  
