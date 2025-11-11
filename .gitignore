@@ -1,0 +1,102 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dll
+*.dylib
+*.bin
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.t7
+*.onnx
+*.pb
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.conda/
+conda_env/
+*.egg-info/
+.eggs/
+dist/
+build/
+develop-eggs/
+downloads/
+
+# Logs / caches / temp
+*.log
+*.out
+*.tmp
+*.bak
+*.swp
+*.swo
+.cache/
+.tox/
+.coverage
+*.coverage
+coverage.xml
+nosetests.xml
+pytest_cache/
+htmlcov/
+.ipynb_checkpoints/
+
+# ======================
+# IDEs
+# ======================
+.idea/
+.vscode/
+.history/
+*.iml
+*.iws
+out/
+
+# ======================
+# Frameworks / Tools
+# ======================
+# Gradio / Streamlit
+gradio_cached_examples/
+gradio/launches/
+gradio/temp/
+
+# TensorBoard / WandB
+runs/
+logs/
+wandb/
+tensorboard/
+
+# ======================
+# System / OS
+# ======================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+__MACOSX/
+
+# ======================
+# Output / Checkpoints
+# ======================
+checkpoints/
+outputs/
+results/
+tmp/
+cache/
+
+# ======================
+# Miscellaneous
+# ======================
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.pdb
+*.mat
+*.h5
