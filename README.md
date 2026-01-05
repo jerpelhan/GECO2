@@ -12,17 +12,15 @@
 
 Few-shot detection-based counters estimate the number of category instances in an image using only a few test-time exemplars. Existing methods often rely on ad-hoc image upscaling and tiling to detect small, densely packed objects, and they struggle when object sizes vary widely within a single image.  **GeCo2** introduces a generalized-scale dense query map that is gradually aggregated across multiple backbone resolutions. Scale-specific query encoders interact with exemplar appearance and shape prototypes at each feature level and then fuse them into a high-resolution query map for detection. This avoids heuristic upscaling/tiling, improves counting and detection accuracy, and reduces memory and runtime. A lightweight SAM2-based mask refinement further polishes box quality.  On standard few-shot counting/detection benchmarks, GeCo2 achieves strong gains in MAE/RMSE and AP/AP50, while running ~3× faster with a smaller GPU footprint.
 
----
-## Live Demo
 
+## Live Demo
 Try the interactive demo on Hugging Face:  
 👉 [DEMO HERE](https://huggingface.co/spaces/jerpelhan/GECO2-demo)
 
----
+
 
 
 ## Highlights
-
 <img width="2575" height="912" alt="GECO2_first_image_motivation_neurips-1" src="https://github.com/user-attachments/assets/adf4dcfd-aa17-4cff-9113-8b8a0e37de31" />
 
 - 🔁 **Gradual cross-scale query aggregation** → one high-res dense query map without tiling.  
@@ -31,7 +29,7 @@ Try the interactive demo on Hugging Face:
 - 📈 Strong results on **FSCD147**, **FSCD-LVIS**, and **MCAC** (few-shot & multi-class).
 
 
----
+
 
 ## Demo Installation
 
