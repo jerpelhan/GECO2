@@ -40,7 +40,7 @@ bash install.sh
 
 Download the model weights from:
 
-👉 [CNTQG_multitrain_ca44.pth](https://huggingface.co/spaces/jerpelhan/GeCo2/blob/main/CNTQG_multitrain_ca44.pth)
+👉 [CNTQG_multitrain_ca44.pth](https://huggingface.co/datasets/jerpelhan/geco2-assets/resolve/main/weights/CNTQG_multitrain_ca44.pth?download=true))
 
 and place the file in the **project root directory**.
 
