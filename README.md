@@ -61,6 +61,46 @@ python demo_gradio.py
 
 ---
 
+
+
+## Reproducing Results on FSCD147
+
+This section describes how to reproduce the reported counting and detection results on the **FSCD147** benchmark.
+
+### Prerequisites
+
+Both training and inference require **Detectron2** for evaluation of detection metrics (**AP** / **AP50**).
+
+Please install Detectron2 following the official instructions corresponding to your PyTorch and CUDA versions.
+
+---
+
+### Option 1: Retraining on FSCD147
+
+1. Train the model:
+
+First correct data_path and model_path in train.sh, then run: 
+```bash
+        bash train.sh
+```
+
+2. Evaluate detection performance (AP / AP50):
+```bash
+        python eval_bboxes.py
+```
+---
+
+### Option 2: Inference with Official Weights
+
+1. Download official [weights for FSCD GECO2](https://drive.google.com/file/d/1OG6-tTP2Egvx-O5oK6lxPzvQO1LWgHbb/view?usp=sharing)
+
+
+2. Run evaluation:
+```bash
+        python eval_bboxes.py
+```
+
+
     
 ## Citation
 

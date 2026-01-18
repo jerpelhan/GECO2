@@ -3,10 +3,10 @@ import argparse
 
 def get_argparser():
 
-    parser = argparse.ArgumentParser("CNT", add_help=False)
+    parser = argparse.ArgumentParser("GECO2", add_help=False)
 
-    parser.add_argument('--model_name', default='base_3_shot_softmax1', type=str)
-    parser.add_argument('--model_name_resumed', default='base_3_shot_softmax1', type=str)
+    parser.add_argument('--model_name', default='GECO2FSCD', type=str)
+    parser.add_argument('--model_name_resumed', default='GECO2FSCD', type=str)
     parser.add_argument(
         '--data_path',
         default='/storage/datasets/fsc147',
@@ -22,7 +22,6 @@ def get_argparser():
     parser.add_argument('--reduction', default=16, type=int)
     parser.add_argument('--image_size', default=1024, type=int)
     parser.add_argument('--num_enc_layers', default=3, type=int)
-    parser.add_argument('--num_ope_iterative_steps', default=3, type=int)
     parser.add_argument('--emb_dim', default=256, type=int)
     parser.add_argument('--num_heads', default=8, type=int)
     parser.add_argument('--kernel_dim', default=3, type=int)

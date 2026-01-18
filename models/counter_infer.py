@@ -7,7 +7,6 @@ from omegaconf import OmegaConf
 from torch import nn
 from torch.nn import functional as F
 from torchvision.ops import roi_align
-from torchvision.transforms import Resize
 
 from utils.box_ops import boxes_with_scores
 from .query_generator import C_base
@@ -24,6 +23,7 @@ class CNT(nn.Module):
             kernel_dim: int,
             reduction: int,
             zero_shot: bool,
+            training: bool=False,
     ):
 
         super(CNT, self).__init__()
@@ -72,9 +72,9 @@ class CNT(nn.Module):
             nn.ReLU(),
             nn.Linear(emb_dim, 1 ** 2 * emb_dim)
         )
-        self.resize = Resize((1024, 1024))
-        self.sam_mask = MaskProcessor(self.emb_dim, self.image_size, reduction)
-        self.sam_corr = True
+        self.validate = not training
+        if self.validate:
+            self.sam_mask = MaskProcessor(self.emb_dim, self.image_size, reduction)
 
 
     def forward(self, x, bboxes):
@@ -144,19 +144,23 @@ class CNT(nn.Module):
         outputs_coord = self.bbox_embed(adapted_f).sigmoid().view(bs, w, h, 4).permute(0, 3, 1, 2)
         outputs, ref_points = boxes_with_scores(centerness, outputs_coord,sort=False, validate=True)
 
-        if self.sam_corr:
+        if not self.validate:
+            adapted_f_aux = adapted_f_aux.view(bs, self.emb_dim, -1).permute(0, 2, 1)
+            centerness_aux = self.class_embed_aux(adapted_f_aux).view(bs, w, h, 1).permute(0, 3, 1, 2)
+            outputs_coord_aux = self.bbox_embed_aux(adapted_f_aux).sigmoid().view(bs, w, h, 4).permute(0, 3, 1, 2)
+            outputs_aux, ref_points_aux = boxes_with_scores(centerness_aux, outputs_coord_aux, sort=False, validate=self.validate)
+            for i in range(len(outputs)):
+                outputs[i]["scores"] = outputs[i]["box_v"]
+            return outputs, ref_points, centerness, outputs_coord, (outputs_aux, ref_points_aux, centerness_aux, outputs_coord_aux)
+
+        else:
             # mask processing
             masks, ious, corrected_bboxes = self.sam_mask(feats, outputs)
             for i in range(len(outputs)):
                 outputs[i]["scores"] = ious[i]
-                outputs[i]["pred_boxes"] = corrected_bboxes[i].to(outputs[i]["pred_boxes"].device).unsqueeze(0) / \
-                                           x.shape[
-                                               -1]
-        else:
-            for i in range(len(outputs)):
-                outputs[i]["scores"] = outputs[i]["box_v"]
+                outputs[i]["pred_boxes"] = corrected_bboxes[i].to(outputs[i]["pred_boxes"].device).unsqueeze(0) /x.shape[ -1]
 
-        return outputs, ref_points, centerness, outputs_coord, masks
+            return outputs, ref_points, centerness, outputs_coord, masks
 
 
 class MLP(nn.Module):
@@ -184,5 +188,4 @@ def build_model(args):
         emb_dim=args.emb_dim,
         kernel_dim=args.kernel_dim,
         reduction=args.reduction,
-
     )

@@ -36,8 +36,8 @@ class CNT(nn.Module):
         self.image_size = image_size
         self.zero_shot = zero_shot
         self.pretrain = False
-
-        # torch.hub.set_dir('/d/hpc/projects/FRI/pelhanj/CNT_SAM2/models/')
+        # TODO REMOVE!!
+        torch.hub.set_dir('/d/hpc/projects/FRI/pelhanj/CNT_SAM2/models/')
         self.class_embed = nn.Sequential(nn.Linear(emb_dim, 1), nn.LeakyReLU())
         self.bbox_embed = MLP(emb_dim, emb_dim, 4, 3)
         if not self.pretrain:
