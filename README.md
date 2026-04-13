@@ -109,9 +109,11 @@ If you find this work useful, please cite:
 ```bibtex
 @inproceedings{pelhan2026generalized,
   title={Generalized-Scale Object Counting with Gradual Query Aggregation},
-  author={Pelhan, Jer and Lukezic, Alan and Kristan, Matej},
+  author={Pelhan, Jer and Luke{\v{z}}i{\v{c}}, Alan and Kristan, Matej},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  pages={},
+  volume={40},
+  number={10},
+  pages={8314--8321},
   year={2026}
 }
 ```
