@@ -1,6 +1,7 @@
 #!/bin/bash
 
 conda create -n test_geco2 python=3.10 -y
+conda activate test_geco2 
 pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu126
 cd ./Deformable-DETR/models/ops
 CUDA_VISIBLE_DEVICES=0 python -m pip install .
