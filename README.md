@@ -2,10 +2,12 @@
 
 > Official repository of **GeCo2**  
 > 🏆 **Accepted to AAAI 2026**  
-> 📄 Read the paper: [GeCo2 PDF](https://arxiv.org/pdf/2511.08048)
+> 📄 Paper: [GeCo2 PDF](https://arxiv.org/pdf/2511.08048)
 
 ---
 
+[![Papers with Code: SOTA on FSCD-147](https://paperswithcode.co/api/v1/papers/2511.08048/leaderboard-badge.svg?eval=10566&live=1)](https://paperswithcode.co/api/v1/papers/2511.08048/leaderboard-badge-link?eval=10566)
+[![Papers with Code: #2 on MCAC](https://paperswithcode.co/api/v1/papers/2511.08048/leaderboard-badge.svg?eval=10696&live=1)](https://paperswithcode.co/api/v1/papers/2511.08048/leaderboard-badge-link?eval=10696)
 
 ## Abstract
 
