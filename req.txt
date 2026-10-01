@@ -1,7 +1,7 @@
 aiofiles==23.2.1
 annotated-types==0.7.0
 antlr4-python3-runtime==4.9.3
-anyio==4.9.0
+anyio==4.14.2
 backports.tarfile==1.2.0
 build==1.2.2.post1
 CacheControl==0.14.2
@@ -99,7 +99,7 @@ typer==0.15.2
 typing-inspection==0.4.0
 typing_extensions==4.13.2
 tzdata==2025.2
-urllib3==2.4.0
+urllib3==2.8.0
 uvicorn==0.34.0
 virtualenv==20.30.0
 websockets==12.0
