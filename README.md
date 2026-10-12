@@ -106,7 +106,7 @@ First correct data_path and model_path in train.sh, then run:
     
 ## Citation
 
-If you find this work useful, please cite:
+If you use our work, cite the following paper and notify us by email at jer.pelhan@fri.uni-lj.si.
 
 ```bibtex
 @inproceedings{pelhan2026generalized,
